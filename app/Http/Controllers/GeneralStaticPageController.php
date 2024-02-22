@@ -5,19 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Infographic;
+use App\Models\MarketPriceWatch;
 
 class GeneralStaticPageController extends Controller
 {
-    
+
     //
     public function home(){
 
         $publications = Publication::orderBy('id', 'desc')->limit(10)->get();
+        $prices = MarketPriceWatch::all();
 
         $data = [
             'page_title' => 'Home',
             'page_class' => 'home',
-            'publications' => $publications
+            'publications' => $publications,
+            'prices' => $prices,
         ];
         return view('home', $data);
     }
@@ -35,21 +38,21 @@ class GeneralStaticPageController extends Controller
         return view("news", $data);
     }
 
-    
+
     public function domains($domain = null) {
-    
+
         $publications = Publication::orderBy('id', 'desc')->limit(10)->get();
-    
+
         $data = [
             'page_title' => 'Domains',
             'page_class' => 'domains',
             'domain' => $domain,
             'publications' => $publications
         ];
-    
+
         return view("domains", $data);
     }
-    
+
 
     public function demography(){
         $publications = Publication::orderBy('id', 'desc')->limit(10)->get();
@@ -98,44 +101,44 @@ class GeneralStaticPageController extends Controller
     }
 
     public function sgsMessage() {
-    
+
         $publications = Publication::orderBy('id', 'desc')->limit(10)->get();
-    
+
         $data = [
             'page_title' => 'SGs Message',
             'page_class' => 'about',
             'domain' => 'SGs Message',
             'publications' => $publications
         ];
-    
+
         return view("sgsMessage", $data);
     }
 
     public function organizationalChart() {
-    
+
         $publications = Publication::orderBy('id', 'desc')->limit(10)->get();
-    
+
         $data = [
             'page_title' => 'Organizational Chart',
             'page_class' => 'about',
             'domain' => 'Organizational Chart',
             'publications' => $publications
         ];
-    
+
         return view("organizationalChart", $data);
     }
 
     public function strategicPlan() {
-    
+
         $publications = Publication::orderBy('id', 'desc')->limit(10)->get();
-    
+
         $data = [
             'page_title' => 'Organizational Chart',
             'page_class' => 'about',
             'domain' => 'Organizational Chart',
             'publications' => $publications
         ];
-    
+
         return view("strategicplan", $data);
     }
 

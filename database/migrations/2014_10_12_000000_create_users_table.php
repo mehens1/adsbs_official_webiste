@@ -22,11 +22,22 @@ class CreateUsersTable extends Migration
             $table->string('role')->unique()->nullable();
             $table->string('email')->unique();
             $table->string('phone_number')->unique();
+            $table->string('profile_picture')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
+            $table->string('token')->nullable();
+            $table->boolean('is_admin')->default(0);
+            $table->boolean('account_status')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // Hash the default password for existing users
+        $defaultPassword = 'default_password'; // Change this to your desired default password
+        $hashedPassword = Hash::make($defaultPassword);
+
+        // Update the 'password' column in the 'users' table with the hashed password
+        DB::table('users')->update(['password' => $hashedPassword]);
     }
 
     /**

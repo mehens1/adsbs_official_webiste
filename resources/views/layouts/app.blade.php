@@ -35,7 +35,7 @@
                 </div>
 
                 <nav class="nav-primary">
-                    @include('layouts.navbar')                    
+                    @include('layouts.navbar')
                 </nav>
 
                 <nav class="nav-primary--mobile">
@@ -43,7 +43,21 @@
                 </nav>
 
                 <div class="notices">
+
+                    @foreach ($prices as $price)
+                    {{-- {{!! $price['description'] !!}} --}}
                     <div class="notice">
+                        <div class="notice__container">
+                            <p>
+                                {!! $price['description'] !!}
+                            </p>
+                        </div>
+                    </div>
+
+                    @endforeach
+
+
+                    {{-- <div class="notice">
                         <div class="notice__container">
                             <p>
                                 <strong>2023 Key Indicators:</strong> Projected Population: <strong>
@@ -53,8 +67,8 @@
                                 <strong><span style="color: red;">2.7M</span></strong>
                             </p>
                         </div>
-                    </div>
-                    <div class="notice">
+                    </div> --}}
+                    {{-- <div class="notice">
                         <div class="notice__container">
                             <p><b>Market Price watch(**/Sold Loose): Adamawa North </b><span style="color: blue;"><span
                                         style="color: #0000ff;"><b style="color: #0000ff;">(August Second Week 2023</b><b
@@ -155,20 +169,20 @@
                                         href="#">Click
                                         for more</a></strong></p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </header>
 
         <div class="wrap container" role="document">
             <div class="content row">
-                <main class="main">                   
-                    @yield('content')                    
+                <main class="main">
+                    @yield('content')
                 </main>
-                @yield('aside')   
-                
+                @yield('aside')
+
             </div>
-        </div>        
+        </div>
 
         <footer class="section" id="footer-primary">
             <div class="footer__container footer__container--fixed footer__container--padded">
@@ -225,10 +239,10 @@
                     </div>
                 </div>
             </div>
-        </footer>        
+        </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        
+
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtBST3BARkcPmJ0k0j12GLcpJshcTUhdE"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <!-- <script>(window.jQuery && jQuery.noConflict()) || document.write('<script src="/wp/wp-includes/js/jquery/jquery.js"><\/script>')</script> -->
