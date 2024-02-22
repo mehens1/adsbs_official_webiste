@@ -43,133 +43,18 @@
                 </nav>
 
                 <div class="notices">
-
                     @foreach ($prices as $price)
-                    {{-- {{!! $price['description'] !!}} --}}
                     <div class="notice">
                         <div class="notice__container">
                             <p>
                                 {!! $price['description'] !!}
+                                @if ($price['hyperlink'])
+                                , <strong><a style="color: #ff0000;" href="{{ $price['hyperlink'] }}">Click for more</a></strong>
+                                @endif
                             </p>
                         </div>
                     </div>
-
                     @endforeach
-
-
-                    {{-- <div class="notice">
-                        <div class="notice__container">
-                            <p>
-                                <strong>2023 Key Indicators:</strong> Projected Population: <strong>
-                                    <span style="color: red;">10.4M</span>
-                                </strong>, Inflation:
-                                <strong><span style="color: red;">24.97%</span></strong>, Annual School Census:
-                                <strong><span style="color: red;">2.7M</span></strong>
-                            </p>
-                        </div>
-                    </div> --}}
-                    {{-- <div class="notice">
-                        <div class="notice__container">
-                            <p><b>Market Price watch(**/Sold Loose): Adamawa North </b><span style="color: blue;"><span
-                                        style="color: #0000ff;"><b style="color: #0000ff;">(August Second Week 2023</b><b
-                                            style="color: #0000ff;">):</b></span></span> Rice Imported (High Quality): <span
-                                    style="color: #ff0000;"><b>N1600</b></span>, Rice, Agric (Low Quality): <strong><span
-                                        style="color: red;">N1600</span></strong>, Rice Local:<strong><span
-                                        style="color: red;">N1300</span></strong>, Beans (White, Black Eye):<span
-                                    style="color: #ff0000;"><b>N850</b></span>, Irish Potato (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N2000</b></span>, Tomato Fresh (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1000</b></span>, Onion (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1200</b></span>, Pepper Fresh (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N2500</b></span>,Maize (White):<span
-                                    style="color: #ff0000;"><b>N800</b></span>, Sorghum(White)<span
-                                    style="color: #ff0000;"><b>N800</b></span>, Millet(Gero or Maiwa): <strong><span
-                                        style="color: red;">N700</span></strong>, <strong><a style="color: #ff0000;"
-                                        href="#">Click
-                                        for more</a></strong></p>
-                        </div>
-                    </div>
-                    <div class="notice">
-                        <div class="notice__container">
-                            <p><b>Market Price watch(**/Sold Loose): Adamawa South </b><span style="color: blue;"><span
-                                        style="color: #0000ff;"><b>(<b style="color: #0000ff;">August Second Week
-                                                2023</b></b></span><span style="color: #0000ff;"><b>):</b></span></span>
-                                Rice Imported (High Quality): <span style="color: #ff0000;"><b>N1700</b></span>, Rice, Agric
-                                (Low Quality): <strong><span style="color: red;">N1500</span></strong>, Rice
-                                Local:<strong><span style="color: red;">N1250</span></strong>, Beans (White, Black
-                                Eye):<span style="color: #ff0000;"><b>N900</b></span>, Irish Potato (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N2000</b></span>, Tomato Fresh (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N800</b></span>, Onion (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1000</b></span>, Pepper Fresh (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N2000</b></span>,Maize (White):<span
-                                    style="color: #ff0000;"><b>N800</b></span>, Sorghum(White)<span
-                                    style="color: #ff0000;"><b>N800</b></span>, Millet(Gero or Maiwa): <strong><span
-                                        style="color: red;">N700</span></strong>, <strong><a style="color: #ff0000;"
-                                        href="#">Click
-                                        for more</a></strong>
-                                <!--more-->
-                            </p>
-                        </div>
-                    </div>
-                    <div class="notice">
-                        <div class="notice__container">
-                            <p><b>Market Price watch(**/Sold Loose): Zaria </b><span style="color: blue;"><span
-                                        style="color: #0000ff;"><b>(<b style="color: #0000ff;">August Second Week
-                                                2023</b></b></span><span style="color: #0000ff;"><b>):</b></span></span>
-                                Rice Imported (High Quality): <span style="color: #ff0000;"><b>N1600</b></span>, Rice, Agric
-                                (Low Quality): <strong><span style="color: red;">N1500</span></strong>, Rice
-                                Local:<strong><span style="color: red;">N1200</span></strong>, Beans (White, Black
-                                Eye):<span style="color: #ff0000;"><b>N850</b></span>, Irish Potato (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1700</b></span>, Tomato Fresh (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N800</b></span>, Onion (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1200</b></span>, Pepper Fresh (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1500</b></span>,Maize (White):<span
-                                    style="color: #ff0000;"><b>N800</b></span>, Sorghum(White)<span
-                                    style="color: #ff0000;"><b>N800</b></span>, Millet(Gero or Maiwa): <strong><span
-                                        style="color: red;">N800</span></strong>, <strong><a style="color: #ff0000;"
-                                        href="#">Click
-                                        for more</a></strong></p>
-                        </div>
-                    </div>
-                    <div class="notice">
-                        <div class="notice__container">
-                            <p><b>Market Price watch(**/Sold Loose): Jemma&#8217;a </b><span style="color: blue;"><span
-                                        style="color: #0000ff;"><b>(<b style="color: #0000ff;">August Second Week
-                                                2023</b></b></span><span style="color: #0000ff;"><b>):</b></span></span>
-                                Rice Imported (High Quality): <span style="color: #ff0000;"><b>N1500</b></span>, Rice, Agric
-                                (Low Quality): <strong><span style="color: red;">N1400</span></strong>, Rice
-                                Local:<strong><span style="color: red;">N1300</span></strong>, Beans (White, Black
-                                Eye):<span style="color: #ff0000;"><b>N850</b></span>, Irish Potato (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1700</b></span>, Tomato Fresh (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1300</b></span>, Onion (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1500</b></span>, Pepper Fresh (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1600</b></span>,Maize (White):<span
-                                    style="color: #ff0000;"><b>N800</b></span>, Sorghum(White)<span
-                                    style="color: #ff0000;"><b>N700</b></span>, Millet(Gero or Maiwa): <strong><span
-                                        style="color: red;">N800</span></strong>, <strong><a style="color: #ff0000;"
-                                        href="#">Click
-                                        for more</a></strong></p>
-                        </div>
-                    </div>
-                    <div class="notice">
-                        <div class="notice__container">
-                            <p><b>Market Price watch(**/Sold Loose): State Average </b><span style="color: blue;"><span
-                                        style="color: #0000ff;"><b>(<b style="color: #0000ff;">August Second Week
-                                                2023</b></b></span><span style="color: #0000ff;"><b>):</b></span></span>
-                                Rice Imported (High Quality): <span style="color: #ff0000;"><b>N1621.74</b></span>, Rice,
-                                Agric (Low Quality): <strong><span style="color: red;">N1478.26</span></strong>, Rice
-                                Local:<strong><span style="color: red;">N1197.83</span></strong>, Beans (White, Black
-                                Eye):<span style="color: #ff0000;"><b>N834.78</b></span>, Irish Potato (4 Litre
-                                Rubber):<span style="color: #ff0000;"><b>N1815.22</b></span>, Tomato Fresh (4 Litre
-                                Rubber):<span style="color: #ff0000;"><b>N1032.61</b></span>, Onion (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1265.22</b></span>, Pepper Fresh (4 Litre Rubber):<span
-                                    style="color: #ff0000;"><b>N1750.00</b></span>,Maize (White):<span
-                                    style="color: #ff0000;"><b>N745.65</b></span>, Sorghum(White)<span
-                                    style="color: #ff0000;"><b>N757.39</b></span>, Millet(Gero or Maiwa): <strong><span
-                                        style="color: red;">N760.87</span></strong>, <strong><a style="color: #ff0000;"
-                                        href="#">Click
-                                        for more</a></strong></p>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </header>
