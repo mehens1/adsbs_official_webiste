@@ -49,7 +49,7 @@
                             <p>
                                 {!! $price['description'] !!}
                                 @if ($price['hyperlink'])
-                                , <strong><a style="color: #ff0000;" href="{{ $price['hyperlink'] }}">Click for more</a></strong>
+                                , <strong><a style="color: #ff0000;" href="uploads/prices_documents/{{ $price['hyperlink'] }}">Click for more</a></strong>
                                 @endif
                             </p>
                         </div>

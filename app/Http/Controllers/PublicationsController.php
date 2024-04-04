@@ -11,7 +11,7 @@ class PublicationsController extends Controller
     public function index()
     {
         $publications = Publication::all();
-        
+
         $data = [
             'page_title' => 'Publications',
             'page_class' => 'publication',
@@ -19,15 +19,11 @@ class PublicationsController extends Controller
         ];
         return view('publication', $data);
     }
-    
+
     public function addTagToPublication($publicationId, Array $tags)
     {
         $publication = Publication::find($publicationId);
-
-        // Add tags to publication
         $publication->tags()->sync([1,3,5]);
-
-        // Get all tags for publication
         $publication->tags();
     }
 
