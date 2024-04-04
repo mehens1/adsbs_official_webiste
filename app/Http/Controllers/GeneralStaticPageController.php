@@ -6,20 +6,33 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Models\Infographic;
 use App\Models\MarketPriceWatch;
+use App\Models\RequestStatisticsData;
+use App\Models\InformationGallary;
 
 class GeneralStaticPageController extends Controller
 {
 
-    public function home(){
+    public function home()
+    {
+        $requestData = RequestStatisticsData::get();
+        $informationGallary = InformationGallary::get();
+
+        // Separate tab labels and tab texts from the request data
+        $tabLabels = $requestData->pluck('tab_label')->toArray();
+        $tabTexts = $requestData->pluck('tab_text')->toArray();
 
         $data = [
             'page_title' => 'Home',
             'page_class' => 'home',
+            'tabLabels' => $tabLabels,
+            'tabTexts' => $tabTexts,
+            'informationGallary' => $informationGallary,
         ];
         return view('home', $data);
     }
 
-    public function news(){
+    public function news()
+    {
         $news = Publication::orderBy('id', 'desc')->paginate(10);
         $data = [
             'page_title' => 'News',
