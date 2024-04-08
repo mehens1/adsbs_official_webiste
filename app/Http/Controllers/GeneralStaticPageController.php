@@ -8,14 +8,40 @@ use App\Models\Infographic;
 use App\Models\MarketPriceWatch;
 use App\Models\RequestStatisticsData;
 use App\Models\InformationGallary;
+use App\Models\KeyStaticsticsProjectedPopulation;
+use App\Models\KeyStaticsticsHealth;
+use App\Models\KeyStaticsticsEconomy;
+use App\Models\KeyStaticsticsAgriculture;
+use App\Models\KeyStaticsticsEducation;
+
+use Carbon\Carbon;
 
 class GeneralStaticPageController extends Controller
 {
 
+    private function keyStatictstics($model, $take){
+
+        $currentMonth = Carbon::now()->month;
+        $currentYear = Carbon::now()->year;
+
+        return $model::whereYear('created_at', $currentYear)
+        ->whereMonth('created_at', '<=', $currentMonth) // Fetch records from any month up to the current month
+        ->orderBy('created_at', 'desc') // Order by created_at in descending order to get the most recent records first
+        ->take($take) // Take only the first record, which will be the most recent
+        ->get();
+    }
+
     public function home()
     {
+
         $requestData = RequestStatisticsData::get();
         $informationGallary = InformationGallary::get();
+
+        $populationStat = $this->keyStatictstics(KeyStaticsticsProjectedPopulation::class, 2);
+        $healthStat = $this->keyStatictstics(KeyStaticsticsHealth::class, 2);
+        $economyStat = $this->keyStatictstics(KeyStaticsticsEconomy::class, 3);
+        $agricStat = $this->keyStatictstics(KeyStaticsticsAgriculture::class, 4);
+        $educationStat = $this->keyStatictstics(KeyStaticsticsEducation::class, 6);
 
         // Separate tab labels and tab texts from the request data
         $tabLabels = $requestData->pluck('tab_label')->toArray();
@@ -27,6 +53,11 @@ class GeneralStaticPageController extends Controller
             'tabLabels' => $tabLabels,
             'tabTexts' => $tabTexts,
             'informationGallary' => $informationGallary,
+            'populationStat' => $populationStat,
+            'healthStat' => $healthStat,
+            'economyStat' => $economyStat,
+            'educationStat' => $educationStat,
+            // 'agricStat' => $agricStat,
         ];
         return view('home', $data);
     }

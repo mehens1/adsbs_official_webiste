@@ -8,20 +8,22 @@
                 <div class="carousel">
 
                     @foreach ($informationGallary as $infoGal)
-                    <div class="carousel__slide">
-                        <div class="slide__container">
-                            <div class="slide__image" style="background-image: url('uploads/information_gallery/placeholders/{{ $infoGal['placeholder_image'] }}');">
-                            </div>
-                            <div class="slide__content">
-                                <p>{!! $infoGal['text'] !!}</p>
+                        <div class="carousel__slide">
+                            <div class="slide__container">
+                                <div class="slide__image"
+                                    style="background-image: url('uploads/information_gallery/placeholders/{{ $infoGal['placeholder_image'] }}');">
+                                </div>
+                                <div class="slide__content">
+                                    <p>{!! $infoGal['text'] !!}</p>
 
-                                @if ($infoGal['document'])
-                                <p><a href="uploads/information_gallery/documents/{{ $infoGal['document'] }}"><strong>Read More &gt;&gt;&gt;</strong></a></p>
-                                @endif
+                                    @if ($infoGal['document'])
+                                        <p><a href="uploads/information_gallery/documents/{{ $infoGal['document'] }}"><strong>Read
+                                                    More &gt;&gt;&gt;</strong></a></p>
+                                    @endif
 
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endforeach
 
                 </div>
@@ -40,19 +42,19 @@
                         <div class="tabs__content">
                             <div class="tabs">
                                 @foreach ($tabLabels as $tabLabel)
-                                <div class="tab__label">
-                                    <h4>{{ $tabLabel }}</h4>
-                                </div>
+                                    <div class="tab__label">
+                                        <h4>{{ $tabLabel }}</h4>
+                                    </div>
                                 @endforeach
 
                             </div>
 
                             <div class="tabs__text">
                                 @foreach ($tabTexts as $tabText)
-                                <div class="tab__text">
+                                    <div class="tab__text">
 
-                                    <p>{!! $tabText !!}</p>
-                                </div>
+                                        <p>{!! $tabText !!}</p>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
@@ -104,7 +106,7 @@
                                         <h4>Health</h4>
                                     </div>
                                     <div class="chart__chart">
-                                        <canvas id="healthChart"></canvas>
+                                        <div id = "healthChart" style = "width: 100%; height: 100%; margin: 0 auto"></div>
                                     </div>
                                 </div>
                                 <div class="chart">
@@ -112,7 +114,7 @@
                                         <h4>Economy</h4>
                                     </div>
                                     <div class="chart__chart">
-                                        <canvas id="economyChart"></canvas>
+                                        <div id = "economyChart" style = "width: 100%; height: 100%; margin: 0 auto"></div>
                                     </div>
                                 </div>
                                 <div class="chart">
@@ -129,127 +131,7 @@
                                         <h4>Education</h4>
                                     </div>
                                     <div class="chart__chart">
-                                        <script type="text/javascript">
-                                        if (typeof(wpDataCharts) == 'undefined') {
-                                            wpDataCharts = {};
-                                        };
-                                        wpDataCharts[7] = {
-                                            render_data: {
-                                                "options": {
-                                                    "data": {
-                                                        "labels": ["Public Pre-Primary",
-                                                            "Public Primary",
-                                                            "Public Junior Secondary",
-                                                            "Public Senior Secondary",
-                                                            "Public - Junior Science & Tech",
-                                                            "Public - Senior Science & Tech"
-                                                        ],
-                                                        "datasets": [{
-                                                            "label": "Male Enrolment",
-                                                            "orig_header": "Male Enrolment",
-                                                            "backgroundColor": "rgba(255,99,132,0.2)",
-                                                            "borderColor": "#ff6384",
-                                                            "borderWidth": 1,
-                                                            "data": [135814, 801910, 174173,
-                                                                75032, 2870, 5583
-                                                            ],
-                                                            "lineTension": 0
-                                                        }, {
-                                                            "label": "Female Enrolment",
-                                                            "orig_header": "Female Enrolment",
-                                                            "backgroundColor": "rgba(54,162,235,0.2)",
-                                                            "borderColor": "#36a2eb",
-                                                            "borderWidth": 1,
-                                                            "data": [127825, 734134, 142839,
-                                                                59964, 970, 2423
-                                                            ],
-                                                            "lineTension": 0
-                                                        }, {
-                                                            "label": "Total Enrolmemt",
-                                                            "orig_header": "Total Enrolmemt",
-                                                            "backgroundColor": "rgba(255,206,86,0.2)",
-                                                            "borderColor": "#ffce56",
-                                                            "borderWidth": 1,
-                                                            "data": [263639, 1536044, 317012,
-                                                                134996, 3840, 8006
-                                                            ],
-                                                            "lineTension": 0
-                                                        }]
-                                                    },
-                                                    "options": {
-                                                        "maintainAspectRatio": true,
-                                                        "scales": {
-                                                            "xAxes": [{
-                                                                "scaleLabel": {
-                                                                    "display": true,
-                                                                    "labelString": ""
-                                                                }
-                                                            }],
-                                                            "yAxes": [{
-                                                                "scaleLabel": {
-                                                                    "display": true,
-                                                                    "labelString": ""
-                                                                },
-                                                                "ticks": {
-                                                                    "beginAtZero": true,
-                                                                    "min": 0
-                                                                }
-                                                            }]
-                                                        },
-                                                        "title": {
-                                                            "display": true,
-                                                            "text": "Education_Key_Statistics",
-                                                            "position": "top",
-                                                            "fontFamily": "Arial",
-                                                            "fontStyle": "bold",
-                                                            "fontColor": "#666"
-                                                        },
-                                                        "tooltips": {
-                                                            "enabled": true,
-                                                            "mode": "single",
-                                                            "backgroundColor": "rgb(0,0,0)",
-                                                            "cornerRadius": 3
-                                                        },
-                                                        "legend": {
-                                                            "display": true,
-                                                            "position": "top"
-                                                        }
-                                                    },
-                                                    "globalOptions": {
-                                                        "defaultFontSize": "",
-                                                        "defaultFontFamily": "Arial",
-                                                        "defaultFontStyle": "bold",
-                                                        "defaultFontColor": ""
-                                                    }
-                                                },
-                                                "configurations": {
-                                                    "type": "chartjs_column_chart",
-                                                    "container": {
-                                                        "height": "400",
-                                                        "width": 0
-                                                    },
-                                                    "canvas": {
-                                                        "backgroundColor": "",
-                                                        "borderWidth": "NaN",
-                                                        "borderColor": "",
-                                                        "borderRadius": ""
-                                                    }
-                                                }
-                                            },
-                                            engine: "chartjs",
-                                            type: "chartjs_column_chart",
-                                            title: "Education_Key_Statistics",
-                                            container: "wpDataChart_7",
-                                            follow_filtering: 0,
-                                            wpdatatable_id: 7,
-                                            group_chart: 0
-                                        }
-                                        </script>
-
-                                        <div id="chartJSContainer_7">
-                                            <canvas id="chartJSCanvas_7"></canvas>
-                                        </div>
-
+                                        <div id="educationChart" style="width: 100%; height: 100%; margin: 0 auto"></div>
                                     </div>
                                 </div>
                             </div>
@@ -267,16 +149,24 @@
 @endsection
 
 @section('pageJs')
+    {{-- // Population Chart --}}
     <script>
+        var populationStat = {!! json_encode($populationStat) !!};
 
+        // Extract labels from populationStat variable
+        var populationLabels = populationStat.map(function(item) {
+            return item.label;
+        });
+        var populationValues = populationStat.map(function(item) {
+            return item.value;
+        });
 
-        // Agriculture Chart
-        var agricChartSec = document.getElementById('agricultureChart').getContext('2d');
+        var populationChartSec = document.getElementById('populationChart').getContext('2d');
         var chartData = {
-            labels: ['Male', 'Female'],
+            labels: populationLabels,
             datasets: [{
-                label: 'Gender Distribution',
-                data: [23423, 5452345], // Adjust the data for 'Male' and 'Female'
+                label: 'People',
+                data: populationValues, // Adjust the data for 'Male' and 'Female'
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(75, 192, 192, 0.2)'
@@ -289,7 +179,7 @@
             }]
         };
 
-        var chartOptions = {
+        var populationChartOptions = {
             scales: {
                 y: {
                     beginAtZero: true
@@ -297,12 +187,294 @@
             }
         };
 
-    // Create the modified column chart
-    var myColumnChart = new Chart(agricChartSec, {
-        type: 'bar',
-        data: chartData,
-        options: chartOptions
-    });
+        // Create the modified column chart
+        var populationChart = new Chart(populationChartSec, {
+            type: 'bar',
+            data: chartData,
+            options: populationChartOptions
+        });
     </script>
 
+    {{-- // Health Chart --}}
+    <script>
+        var healthStat = {!! json_encode($healthStat) !!};
+
+        // Extract labels from populationStat variable
+        var healthLabels = healthStat.map(function(item) {
+            return item.label;
+        });
+        var healthHomeValues = healthStat.map(function(item) {
+            return item.home_value;
+        });
+        var healthAssistedValues = healthStat.map(function(item) {
+            return item.assisted_value;
+        });
+
+            var chart = {
+               type: 'spline'
+            };
+            var title = {
+               text: 'Birth : Assisted vs Home Delivery'
+            };
+            var subtitle = {
+               text: 'Source: ADSBS'
+            };
+            var xAxis = {
+               categories: healthLabels
+            };
+            var yAxis = {
+               title: {
+                  text: '% of Delivery'
+               },
+               labels: {
+                  formatter: function () {
+                     return this.value + '%';
+                  }
+               },
+               lineWidth: 2
+            };
+            var tooltip = {
+               crosshairs: true,
+               shared: true
+            };
+            var plotOptions = {
+               spline: {
+                  marker: {
+                     radius: 4,
+                     lineColor: '#666666',
+                     lineWidth: 1
+                  }
+               }
+            };
+            var series = [
+               {
+                  name: 'Assited',
+                  marker: {
+                     symbol: 'square'
+                  },
+                  data: healthAssistedValues
+               },
+               {
+                  name: 'Home Delivery',
+                  marker: {
+                     symbol: 'diamond'
+                  },
+                  data: healthHomeValues
+               }
+            ];
+
+            var json = {};
+            json.chart = chart;
+            json.title = title;
+            json.subtitle = subtitle;
+            json.tooltip = tooltip;
+            json.xAxis = xAxis;
+            json.yAxis = yAxis;
+            json.series = series;
+            json.plotOptions = plotOptions;
+            $('#healthChart').highcharts(json);
+
+    </script>
+
+    {{-- // Economy Chart --}}
+    <script language = "JavaScript">
+
+        var economyStat = {!! json_encode($economyStat) !!};
+
+        // Extract labels from populationStat variable
+        var economyLabels = economyStat.map(function(item) {
+            return [item.label, item.value];
+        });
+        // var economyValues = economyStat.map(function(item) {
+        //     return item.value;
+        // });
+        // var healthAssistedValues = economyStat.map(function(item) {
+        //     return item.assisted_value;
+        // });
+
+
+           var chart = {
+              plotBackgroundColor: null,
+              plotBorderWidth: null,
+              plotShadow: false
+           };
+           var title = {
+              text: 'GDP(%)'
+           };
+           var tooltip = {
+              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+           };
+           var plotOptions = {
+              pie: {
+                 allowPointSelect: true,
+                 cursor: 'pointer',
+
+                 dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                    style: {
+                       color: (Highcharts.theme && Highcharts.theme.contrastTextColor)||
+                       'black'
+                    }
+                 }
+              }
+           };
+           var series = [{
+              type: 'pie',
+              name: 'Browser share',
+              data: economyLabels
+           }];
+           var json = {};
+           json.chart = chart;
+           json.title = title;
+           json.tooltip = tooltip;
+           json.series = series;
+           json.plotOptions = plotOptions;
+           $('#economyChart').highcharts(json);
+
+    </script>
+
+    {{-- // Agriculture Chart --}}
+    {{-- <script language = "JavaScript">
+
+        var agricStat = {!! json_encode($agricStat) !!};
+
+        // Extract labels from populationStat variable
+        var economyLabels = agricStat.map(function(item) {
+            return [item.label, item.value];
+        });
+        // var economyValues = economyStat.map(function(item) {
+        //     return item.value;
+        // });
+        // var healthAssistedValues = economyStat.map(function(item) {
+        //     return item.assisted_value;
+        // });
+
+
+           var chart = {
+              plotBackgroundColor: null,
+              plotBorderWidth: null,
+              plotShadow: false
+           };
+           var title = {
+              text: 'GDP(%)'
+           };
+           var tooltip = {
+              pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+           };
+           var plotOptions = {
+              pie: {
+                 allowPointSelect: true,
+                 cursor: 'pointer',
+
+                 dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+                    style: {
+                       color: (Highcharts.theme && Highcharts.theme.contrastTextColor)||
+                       'black'
+                    }
+                 }
+              }
+           };
+           var series = [{
+              type: 'pie',
+              name: 'Browser share',
+              data: economyLabels
+           }];
+           var json = {};
+           json.chart = chart;
+           json.title = title;
+           json.tooltip = tooltip;
+           json.series = series;
+           json.plotOptions = plotOptions;
+           $('#economyChart').highcharts(json);
+
+    </script> --}}
+
+    {{-- // Education Chart --}}
+    <script language = "JavaScript">
+
+        var educationStat = {!! json_encode($educationStat) !!};
+
+        // Extract labels from populationStat variable
+        var educationLabels = educationStat.map(function(item) {
+            return item.label;
+        });
+        var educationMaleValues = educationStat.map(function(item) {
+            return item.male;
+        });
+        var educationFemaleValues = educationStat.map(function(item) {
+            return item.female;
+        });
+
+        var educationTotalValues = educationStat.map(function(item) {
+        var total = item.male + item.female;
+            return total;
+        });
+
+        var chart = {
+            type: 'column'
+        };
+        var title = {
+            text: 'Education Key Statistics'
+        };
+        var subtitle = {
+            text: 'Source: ADSBS, Yola'
+        };
+        var xAxis = {
+            categories: educationLabels,
+            crosshair: true
+        };
+        var yAxis = {
+            min: 0,
+            title: {
+                text: 'Rainfall (mm)'
+            }
+        };
+        var tooltip = {
+            headerFormat: '<span style = "font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style = "color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style = "padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        };
+        var plotOptions = {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        };
+        var credits = {
+            enabled: false
+        };
+        var series= [
+            {
+                name: 'Male',
+                data: educationMaleValues
+            },
+            {
+                name: 'Female',
+                data: educationFemaleValues
+            },
+            {
+                name: 'Total',
+                data: educationTotalValues
+            }
+        ];
+
+        var json = {};
+        json.chart = chart;
+        json.title = title;
+        json.subtitle = subtitle;
+        json.tooltip = tooltip;
+        json.xAxis = xAxis;
+        json.yAxis = yAxis;
+        json.series = series;
+        json.plotOptions = plotOptions;
+        json.credits = credits;
+        $('#educationChart').highcharts(json);
+
+    </script>
 @endsection
